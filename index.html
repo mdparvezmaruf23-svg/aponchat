@@ -1,0 +1,5275 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>APONCHAT ❤️</title>
+
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+
+  font-family:
+    Arial,
+    "Noto Sans Bengali",
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      #ff3d8115,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      #704cff18,
+      transparent 30%
+    ),
+    #070a12;
+
+  color:#fff;
+
+  min-height:100vh;
+
+}
+
+
+/* =========================
+   COMMON
+========================= */
+
+button,
+input{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none !important;
+}
+
+.muted{
+  color:#8993a7;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.center{
+  text-align:center;
+}
+
+
+/* =========================
+   LAUNCH SCREEN
+========================= */
+
+.launch-overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:99999;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:20px;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      #ff3d8130,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      #704cff35,
+      transparent 40%
+    ),
+    #05070d;
+
+  overflow:auto;
+
+}
+
+
+.launch-box{
+
+  width:100%;
+
+  max-width:700px;
+
+  padding:30px 20px;
+
+  text-align:center;
+
+  background:#101522ee;
+
+  border:1px solid #ffffff15;
+
+  border-radius:32px;
+
+  box-shadow:
+    0 30px 100px #000b;
+
+  backdrop-filter:blur(25px);
+
+}
+
+
+.launch-logo{
+
+  width:90px;
+
+  height:90px;
+
+  margin:0 auto 15px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:28px;
+
+  font-size:45px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff3d81,
+      #704cff
+    );
+
+  box-shadow:
+    0 20px 50px #ff3d8140;
+
+}
+
+
+.launch-title{
+
+  font-size:34px;
+
+  font-weight:1000;
+
+  letter-spacing:1px;
+
+}
+
+
+.launch-subtitle{
+
+  color:#aab3c5;
+
+  margin-top:8px;
+
+  font-size:14px;
+
+}
+
+
+.launch-date{
+
+  margin-top:22px;
+
+  padding:17px;
+
+  border-radius:20px;
+
+  background:#ffffff08;
+
+  border:1px solid #ffffff12;
+
+  line-height:1.8;
+
+  color:#cbd2df;
+
+}
+
+
+.launch-date b{
+
+  color:#fff;
+
+  font-size:20px;
+
+}
+
+
+.launch-date span{
+
+  color:#ff79aa;
+
+  font-weight:800;
+
+}
+
+
+.timer-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:13px;
+
+  margin-top:20px;
+
+}
+
+
+.timer-card{
+
+  min-height:125px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:23px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff10,
+      #ffffff04
+    );
+
+  border:1px solid #ffffff15;
+
+  box-shadow:
+    inset 0 1px 0 #ffffff08;
+
+}
+
+
+.timer-card div{
+
+  font-size:42px;
+
+  font-weight:1000;
+
+  line-height:1;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff,
+      #ff70a8
+    );
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
+
+}
+
+
+.timer-card span{
+
+  margin-top:10px;
+
+  color:#929caf;
+
+  font-size:13px;
+
+}
+
+
+.launch-message{
+
+  margin-top:18px;
+
+  color:#8993a7;
+
+  font-size:13px;
+
+}
+
+
+/* =========================
+   AUTH
+========================= */
+
+.auth-screen{
+
+  min-height:100vh;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:20px;
+
+}
+
+
+.auth-box{
+
+  width:100%;
+
+  max-width:480px;
+
+  padding:25px;
+
+  background:#101522ee;
+
+  border:1px solid #ffffff12;
+
+  border-radius:28px;
+
+  box-shadow:
+    0 25px 80px #0008;
+
+  backdrop-filter:blur(25px);
+
+}
+
+
+.logo{
+
+  width:78px;
+
+  height:78px;
+
+  border-radius:24px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  margin:0 auto 15px;
+
+  font-size:38px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff3d81,
+      #704cff
+    );
+
+}
+
+
+.app-name{
+
+  text-align:center;
+
+  font-size:29px;
+
+  font-weight:1000;
+
+}
+
+
+.tagline{
+
+  text-align:center;
+
+  color:#929caf;
+
+  font-size:13px;
+
+  margin-top:7px;
+
+}
+
+
+.owner-card{
+
+  margin-top:20px;
+
+  padding:15px;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff3d8115,
+      #704cff15
+    );
+
+  border:1px solid #ffffff12;
+
+  text-align:center;
+
+}
+
+
+.owner-card .owner{
+
+  font-size:17px;
+
+  font-weight:900;
+
+}
+
+
+.owner-card .role{
+
+  margin-top:5px;
+
+  font-size:12px;
+
+  color:#ff79aa;
+
+  font-weight:700;
+
+}
+
+
+.tabs{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:8px;
+
+  margin-top:22px;
+
+}
+
+
+.tab-btn{
+
+  padding:13px;
+
+  border:0;
+
+  border-radius:14px;
+
+  background:#ffffff08;
+
+  color:#9da6b8;
+
+  font-weight:800;
+
+}
+
+
+.tab-btn.active{
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff3d81,
+      #704cff
+    );
+
+  color:#fff;
+
+}
+
+
+.form{
+
+  margin-top:20px;
+
+}
+
+
+.field{
+
+  margin-bottom:13px;
+
+}
+
+
+.field label{
+
+  display:block;
+
+  margin-bottom:7px;
+
+  color:#b8c0cf;
+
+  font-size:13px;
+
+}
+
+
+.field input{
+
+  width:100%;
+
+  padding:14px 15px;
+
+  border-radius:14px;
+
+  border:1px solid #ffffff12;
+
+  outline:none;
+
+  background:#ffffff08;
+
+  color:#fff;
+
+}
+
+
+.field input:focus{
+
+  border-color:#ff4f9180;
+
+}
+
+
+.primary-btn{
+
+  width:100%;
+
+  padding:14px;
+
+  border:0;
+
+  border-radius:15px;
+
+  color:#fff;
+
+  font-weight:900;
+
+  font-size:15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff3d81,
+      #704cff
+    );
+
+  box-shadow:
+    0 10px 30px #ff3d8125;
+
+}
+
+
+.secondary-btn{
+
+  width:100%;
+
+  padding:13px;
+
+  border:1px solid #ffffff12;
+
+  border-radius:15px;
+
+  color:#fff;
+
+  background:#ffffff08;
+
+  font-weight:800;
+
+}
+
+
+.link-btn{
+
+  border:0;
+
+  background:none;
+
+  color:#ff75a9;
+
+  margin-top:13px;
+
+  width:100%;
+
+  font-weight:700;
+
+}
+
+
+.otp-box{
+
+  margin-top:12px;
+
+  padding:12px;
+
+  border-radius:14px;
+
+  background:#ffb00010;
+
+  border:1px solid #ffb00020;
+
+  color:#ffd166;
+
+  font-size:13px;
+
+}
+
+
+/* =========================
+   MAIN APP
+========================= */
+
+#app{
+
+  min-height:100vh;
+
+}
+
+
+.topbar{
+
+  position:sticky;
+
+  top:0;
+
+  z-index:100;
+
+  height:65px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  padding:0 15px;
+
+  background:#080c15dd;
+
+  border-bottom:1px solid #ffffff0d;
+
+  backdrop-filter:blur(20px);
+
+}
+
+
+.topbar-title{
+
+  font-size:20px;
+
+  font-weight:1000;
+
+}
+
+
+.back-btn{
+
+  border:0;
+
+  background:#ffffff08;
+
+  color:#fff;
+
+  padding:9px 12px;
+
+  border-radius:12px;
+
+}
+
+
+.profile-mini{
+
+  width:40px;
+
+  height:40px;
+
+  border-radius:50%;
+
+  overflow:hidden;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff3d81,
+      #704cff
+    );
+
+  font-size:20px;
+
+}
+
+
+.profile-mini img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+}
+
+
+.content{
+
+  max-width:1000px;
+
+  margin:auto;
+
+  padding:20px 15px 100px;
+
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.hero{
+
+  padding:24px;
+
+  border-radius:27px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff3d8118,
+      #704cff18
+    );
+
+  border:1px solid #ffffff12;
+
+}
+
+
+.hero h1{
+
+  font-size:28px;
+
+  margin-bottom:8px;
+
+}
+
+
+.hero p{
+
+  color:#aab3c5;
+
+  line-height:1.7;
+
+  font-size:14px;
+
+}
+
+
+.owner-small{
+
+  margin-top:17px;
+
+  color:#ff83b2;
+
+  font-size:13px;
+
+  font-weight:800;
+
+}
+
+
+.home-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:13px;
+
+  margin-top:16px;
+
+}
+
+
+.home-card{
+
+  min-height:130px;
+
+  padding:18px;
+
+  border-radius:22px;
+
+  background:#101522;
+
+  border:1px solid #ffffff0d;
+
+  transition:.2s;
+
+}
+
+
+.home-card:hover{
+
+  transform:translateY(-3px);
+
+  border-color:#ff4f9140;
+
+}
+
+
+.home-card .icon{
+
+  font-size:30px;
+
+}
+
+
+.home-card h3{
+
+  margin-top:10px;
+
+  font-size:16px;
+
+}
+
+
+.home-card p{
+
+  margin-top:5px;
+
+  color:#8993a7;
+
+  font-size:12px;
+
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section-title{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  margin-bottom:15px;
+
+}
+
+
+.section-title h2{
+
+  font-size:21px;
+
+}
+
+
+.card{
+
+  background:#101522;
+
+  border:1px solid #ffffff0d;
+
+  border-radius:22px;
+
+  padding:18px;
+
+  margin-bottom:13px;
+
+}
+
+
+/* =========================
+   GROUP
+========================= */
+
+.group-cover{
+
+  height:170px;
+
+  border-radius:23px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:60px;
+
+  background:
+    radial-gradient(
+      circle,
+      #ff3d8130,
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      #171d2e,
+      #0c101a
+    );
+
+  border:1px solid #ffffff10;
+
+}
+
+
+.group-name{
+
+  margin-top:15px;
+
+  font-size:25px;
+
+  font-weight:1000;
+
+}
+
+
+.group-bio{
+
+  margin-top:8px;
+
+  color:#9ca6b8;
+
+  line-height:1.7;
+
+  font-size:13px;
+
+}
+
+
+.group-actions{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:10px;
+
+  margin-top:15px;
+
+}
+
+
+/* =========================
+   MEMBERS
+========================= */
+
+.member{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:13px;
+
+  padding:13px;
+
+  border-radius:18px;
+
+  background:#ffffff05;
+
+  border:1px solid #ffffff08;
+
+  margin-bottom:9px;
+
+}
+
+
+.avatar{
+
+  width:52px;
+
+  height:52px;
+
+  min-width:52px;
+
+  border-radius:50%;
+
+  overflow:hidden;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:23px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff3d81,
+      #704cff
+    );
+
+}
+
+
+.avatar img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+}
+
+
+.member-info{
+
+  flex:1;
+
+  min-width:0;
+
+}
+
+
+.member-name{
+
+  font-weight:900;
+
+}
+
+
+.member-username{
+
+  margin-top:3px;
+
+  color:#8993a7;
+
+  font-size:12px;
+
+}
+
+
+.online{
+
+  margin-top:4px;
+
+  font-size:11px;
+
+  color:#57e389;
+
+}
+
+
+.offline{
+
+  margin-top:4px;
+
+  font-size:11px;
+
+  color:#7c8493;
+
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-big{
+
+  width:100px;
+
+  height:100px;
+
+  margin:auto;
+
+  border-radius:50%;
+
+  overflow:hidden;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:40px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff3d81,
+      #704cff
+    );
+
+}
+
+
+.profile-big img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+}
+
+
+.profile-name{
+
+  text-align:center;
+
+  margin-top:13px;
+
+  font-size:22px;
+
+  font-weight:1000;
+
+}
+
+
+.profile-user{
+
+  text-align:center;
+
+  color:#8993a7;
+
+  margin-top:5px;
+
+}
+
+
+/* =========================
+   CHAT
+========================= */
+
+.chat-box{
+
+  min-height:400px;
+
+  max-height:55vh;
+
+  overflow-y:auto;
+
+  padding:10px;
+
+  background:#080c14;
+
+  border-radius:20px;
+
+  border:1px solid #ffffff08;
+
+}
+
+
+.message{
+
+  max-width:78%;
+
+  padding:11px 13px;
+
+  border-radius:17px;
+
+  margin:8px 0;
+
+  line-height:1.6;
+
+  font-size:13px;
+
+}
+
+
+.message.me{
+
+  margin-left:auto;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff3d81,
+      #704cff
+    );
+
+}
+
+
+.message.other{
+
+  background:#ffffff0b;
+
+}
+
+
+.chat-input{
+
+  display:flex;
+
+  gap:8px;
+
+  margin-top:10px;
+
+}
+
+
+.chat-input input{
+
+  flex:1;
+
+  padding:13px;
+
+  border:1px solid #ffffff12;
+
+  border-radius:14px;
+
+  background:#ffffff08;
+
+  color:#fff;
+
+  outline:none;
+
+}
+
+
+.send-btn{
+
+  width:52px;
+
+  border:0;
+
+  border-radius:14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff3d81,
+      #704cff
+    );
+
+  color:#fff;
+
+}
+
+
+/* =========================
+   CHANNEL
+========================= */
+
+.channel-head{
+
+  padding:20px;
+
+  border-radius:24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff3d8115,
+      #704cff15
+    );
+
+  border:1px solid #ffffff10;
+
+  margin-bottom:17px;
+
+}
+
+
+.channel-head h2{
+
+  font-size:25px;
+
+}
+
+
+.channel-head p{
+
+  color:#929caf;
+
+  margin-top:7px;
+
+  line-height:1.6;
+
+  font-size:13px;
+
+}
+
+
+.bot-status{
+
+  margin-top:13px;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  padding:8px 11px;
+
+  border-radius:12px;
+
+  background:#57e38912;
+
+  color:#70ed9c;
+
+  font-size:12px;
+
+  font-weight:800;
+
+}
+
+
+/* IMPORTANT:
+   Normal order.
+   New posts appear at bottom.
+*/
+
+#channelPosts{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:15px;
+
+}
+
+
+.post{
+
+  width:100%;
+
+  min-height:190px;
+
+  padding:20px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:space-between;
+
+  background:
+    linear-gradient(
+      145deg,
+      #151c2c,
+      #0d121e
+    );
+
+  border:1px solid #ffffff12;
+
+  border-radius:24px;
+
+  box-shadow:
+    0 12px 35px #0004;
+
+}
+
+
+.post-text{
+
+  font-size:16px;
+
+  line-height:1.8;
+
+  white-space:pre-line;
+
+}
+
+
+.post-bottom{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:10px;
+
+  margin-top:18px;
+
+}
+
+
+.post-time{
+
+  color:#6f788a;
+
+  font-size:11px;
+
+}
+
+
+.like-btn{
+
+  border:1px solid #ffffff12;
+
+  background:#ffffff08;
+
+  color:#fff;
+
+  padding:9px 13px;
+
+  border-radius:13px;
+
+}
+
+
+/* =========================
+   CALLS
+========================= */
+
+.call-card{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:13px;
+
+  padding:15px;
+
+  background:#ffffff06;
+
+  border:1px solid #ffffff0c;
+
+  border-radius:18px;
+
+  margin-bottom:10px;
+
+}
+
+
+.call-info{
+
+  flex:1;
+
+}
+
+
+.call-actions{
+
+  display:flex;
+
+  gap:7px;
+
+}
+
+
+.call-btn{
+
+  width:42px;
+
+  height:42px;
+
+  border:0;
+
+  border-radius:13px;
+
+  color:#fff;
+
+  background:#ffffff0c;
+
+}
+
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav{
+
+  position:fixed;
+
+  left:0;
+
+  right:0;
+
+  bottom:0;
+
+  z-index:500;
+
+  height:68px;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(5,1fr);
+
+  background:#080c15ee;
+
+  border-top:1px solid #ffffff0d;
+
+  backdrop-filter:blur(20px);
+
+}
+
+
+.nav-btn{
+
+  border:0;
+
+  background:none;
+
+  color:#737d90;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:4px;
+
+  font-size:10px;
+
+}
+
+
+.nav-btn span:first-child{
+
+  font-size:20px;
+
+}
+
+
+.nav-btn.active{
+
+  color:#ff73a9;
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+
+  position:fixed;
+
+  left:50%;
+
+  bottom:85px;
+
+  transform:
+    translateX(-50%)
+    translateY(20px);
+
+  padding:12px 16px;
+
+  border-radius:14px;
+
+  background:#171d2b;
+
+  border:1px solid #ffffff12;
+
+  color:#fff;
+
+  font-size:13px;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:.3s;
+
+  z-index:10000;
+
+}
+
+
+.toast.show{
+
+  opacity:1;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:600px){
+
+  .content{
+
+    padding-bottom:90px;
+
+  }
+
+  .home-grid{
+
+    grid-template-columns:1fr 1fr;
+
+  }
+
+  #channelPosts{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .post{
+
+    min-height:170px;
+
+  }
+
+}
+
+
+@media(min-width:601px){
+
+  .timer-grid{
+
+    grid-template-columns:
+      repeat(4,1fr);
+
+  }
+
+}
+
+
+@media(max-width:390px){
+
+  .home-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .auth-box{
+
+    padding:19px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     LAUNCH TIMER
+================================================== -->
+
+<div
+  id="launchOverlay"
+  class="launch-overlay"
+>
+
+  <div class="launch-box">
+
+    <div class="launch-logo">
+      ❤️
+    </div>
+
+    <div class="launch-title">
+      APONCHAT ❤️
+    </div>
+
+    <div class="launch-subtitle">
+      নিজের মানুষ, নিজের আড্ডা, নিজের জায়গা।
+    </div>
+
+    <div class="launch-date">
+
+      🚀 LAUNCHING
+
+      <br>
+
+      <b>20 SEPTEMBER 2026</b>
+
+      <br>
+
+      <span>
+        দুপুর ১২:০০টা • বাংলাদেশ 🇧🇩
+      </span>
+
+    </div>
+
+
+    <div class="timer-grid">
+
+      <div class="timer-card">
+
+        <div id="days">
+          00
+        </div>
+
+        <span>
+          দিন
+        </span>
+
+      </div>
+
+
+      <div class="timer-card">
+
+        <div id="hours">
+          00
+        </div>
+
+        <span>
+          ঘণ্টা
+        </span>
+
+      </div>
+
+
+      <div class="timer-card">
+
+        <div id="minutes">
+          00
+        </div>
+
+        <span>
+          মিনিট
+        </span>
+
+      </div>
+
+
+      <div class="timer-card">
+
+        <div id="seconds">
+          00
+        </div>
+
+        <span>
+          সেকেন্ড
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="launchMessage"
+      class="launch-message"
+    >
+      ⏳ Launch-এর অপেক্ষায়...
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     AUTH SCREEN
+================================================== -->
+
+<section
+  id="authScreen"
+  class="auth-screen"
+>
+
+  <div class="auth-box">
+
+    <div class="logo">
+      ❤️
+    </div>
+
+    <div class="app-name">
+      APONCHAT ❤️
+    </div>
+
+    <div class="tagline">
+      নিজের মানুষ, নিজের আড্ডা, নিজের জায়গা।
+    </div>
+
+
+    <div class="owner-card">
+
+      <div class="owner">
+        👑 MD PARVEZ MARUF
+      </div>
+
+      <div class="role">
+        OWNER • APONCHAT ❤️
+      </div>
+
+    </div>
+
+
+    <div class="tabs">
+
+      <button
+        id="loginTab"
+        class="tab-btn active"
+        onclick="showAuth('login')"
+      >
+        Login
+      </button>
+
+      <button
+        id="registerTab"
+        class="tab-btn"
+        onclick="showAuth('register')"
+      >
+        Register
+      </button>
+
+    </div>
+
+
+    <!-- LOGIN -->
+
+    <div
+      id="loginForm"
+      class="form"
+    >
+
+      <div class="field">
+
+        <label>
+          মোবাইল নম্বর
+        </label>
+
+        <input
+          id="loginPhone"
+          type="tel"
+          placeholder="01XXXXXXXXX"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          Password
+        </label>
+
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Password"
+        >
+
+      </div>
+
+
+      <button
+        class="primary-btn"
+        onclick="loginUser()"
+      >
+        🔐 Login
+      </button>
+
+
+      <button
+        class="link-btn"
+        onclick="showForgot()"
+      >
+        Password ভুলে গেছেন?
+      </button>
+
+    </div>
+
+
+
+    <!-- REGISTER -->
+
+    <div
+      id="registerForm"
+      class="form hidden"
+    >
+
+      <div class="field">
+
+        <label>
+          মোবাইল নম্বর
+        </label>
+
+        <input
+          id="regPhone"
+          type="tel"
+          placeholder="01XXXXXXXXX"
+        >
+
+      </div>
+
+
+      <button
+        class="secondary-btn"
+        onclick="sendOTP()"
+      >
+        📱 OTP পাঠান
+      </button>
+
+
+      <div
+        id="otpArea"
+        class="hidden"
+      >
+
+        <div class="otp-box">
+
+          Demo OTP:
+          <b id="demoOtpText">
+            ------
+          </b>
+
+          <br>
+
+          ⚠️ এটি এখন Demo OTP।
+          Real version-এ SMS যাবে।
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            OTP
+          </label>
+
+          <input
+            id="regOtp"
+            type="number"
+            placeholder="6 digit OTP"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            আপনার নাম
+          </label>
+
+          <input
+            id="regName"
+            type="text"
+            placeholder="আপনার নাম"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Username
+          </label>
+
+          <input
+            id="regUsername"
+            type="text"
+            placeholder="@username"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Profile Picture
+          </label>
+
+          <input
+            id="profileFile"
+            type="file"
+            accept="image/*"
+            onchange="previewProfile(this)"
+          >
+
+        </div>
+
+
+        <div
+          id="profilePreview"
+          class="profile-big"
+          style="margin-bottom:15px;"
+        >
+          👤
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Password
+          </label>
+
+          <input
+            id="regPassword"
+            type="password"
+            placeholder="Password"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Confirm Password
+          </label>
+
+          <input
+            id="regConfirm"
+            type="password"
+            placeholder="Confirm Password"
+          >
+
+        </div>
+
+
+        <button
+          class="primary-btn"
+          onclick="registerUser()"
+        >
+          ❤️ Create Account
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- FORGOT PASSWORD -->
+
+    <div
+      id="forgotForm"
+      class="form hidden"
+    >
+
+      <div class="center">
+
+        <h3>
+          🔑 Forgot Password
+        </h3>
+
+        <p
+          class="muted"
+          style="margin-top:7px;"
+        >
+          মোবাইল নম্বর দিয়ে Password reset করুন।
+        </p>
+
+      </div>
+
+
+      <div class="field" style="margin-top:18px;">
+
+        <label>
+          মোবাইল নম্বর
+        </label>
+
+        <input
+          id="forgotPhone"
+          type="tel"
+          placeholder="01XXXXXXXXX"
+        >
+
+      </div>
+
+
+      <button
+        class="secondary-btn"
+        onclick="sendForgotOTP()"
+      >
+        📱 OTP পাঠান
+      </button>
+
+
+      <div
+        id="forgotOtpArea"
+        class="hidden"
+      >
+
+        <div class="otp-box">
+
+          Demo OTP:
+          <b id="forgotOtpText">
+            ------
+          </b>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            OTP
+          </label>
+
+          <input
+            id="forgotOtp"
+            type="number"
+            placeholder="6 digit OTP"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            নতুন Password
+          </label>
+
+          <input
+            id="newPassword"
+            type="password"
+            placeholder="New Password"
+          >
+
+        </div>
+
+
+        <button
+          class="primary-btn"
+          onclick="resetPassword()"
+        >
+          🔄 Password Reset
+        </button>
+
+      </div>
+
+
+      <button
+        class="link-btn"
+        onclick="showAuth('login')"
+      >
+        ← Login-এ ফিরে যান
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     MAIN APP
+================================================== -->
+
+<div
+  id="app"
+  class="hidden"
+>
+
+
+  <!-- TOP BAR -->
+
+  <header class="topbar">
+
+    <div
+      id="backButtonBox"
+      class="hidden"
+    >
+
+      <button
+        class="back-btn"
+        onclick="goBack()"
+      >
+        ← Back
+      </button>
+
+    </div>
+
+
+    <div
+      id="topTitle"
+      class="topbar-title"
+    >
+      APONCHAT ❤️
+    </div>
+
+
+    <div
+      id="topProfile"
+      class="profile-mini"
+      onclick="openPage('profile')"
+    >
+      👤
+    </div>
+
+  </header>
+
+
+
+  <!-- CONTENT -->
+
+  <main
+    id="content"
+    class="content"
+  ></main>
+
+
+
+  <!-- BOTTOM NAV -->
+
+  <nav class="bottom-nav">
+
+    <button
+      id="navHome"
+      class="nav-btn active"
+      onclick="openPage('home')"
+    >
+
+      <span>
+        🏠
+      </span>
+
+      Home
+
+    </button>
+
+
+    <button
+      id="navGroup"
+      class="nav-btn"
+      onclick="openPage('group')"
+    >
+
+      <span>
+        ❤️
+      </span>
+
+      Family
+
+    </button>
+
+
+    <button
+      id="navMembers"
+      class="nav-btn"
+      onclick="openPage('members')"
+    >
+
+      <span>
+        👥
+      </span>
+
+      Members
+
+    </button>
+
+
+    <button
+      id="navChannel"
+      class="nav-btn"
+      onclick="openPage('channel')"
+    >
+
+      <span>
+        📢
+      </span>
+
+      Channel
+
+    </button>
+
+
+    <button
+      id="navProfile"
+      class="nav-btn"
+      onclick="openPage('profile')"
+    >
+
+      <span>
+        👤
+      </span>
+
+      Profile
+
+    </button>
+
+  </nav>
+
+</div>
+
+
+
+<!-- TOAST -->
+
+<div
+  id="toast"
+  class="toast"
+>
+</div>
+
+
+
+<script>
+
+/* ==================================================
+   DATA
+================================================== */
+
+let users =
+  JSON.parse(
+    localStorage.getItem("apon_users") || "[]"
+  );
+
+
+let currentUser =
+  JSON.parse(
+    localStorage.getItem("apon_current") || "null"
+  );
+
+
+let groupMessages =
+  JSON.parse(
+    localStorage.getItem("apon_group_messages") || "[]"
+  );
+
+
+let personalChats =
+  JSON.parse(
+    localStorage.getItem("apon_personal_chats") || "{}"
+  );
+
+
+let channelPosts =
+  JSON.parse(
+    localStorage.getItem("apon_channel_posts") || "[]"
+  );
+
+
+let currentPage = "home";
+
+let pageHistory = [];
+
+let selectedMember = null;
+
+let pendingPhone = "";
+
+let demoOTP = "";
+
+let forgotOTP = "";
+
+let selectedProfilePhoto = "";
+
+
+/* ==================================================
+   LAUNCH DATE
+   Bangladesh Time
+   UTC +6
+================================================== */
+
+const LAUNCH_TIME =
+  new Date(
+    "2026-09-20T12:00:00+06:00"
+  ).getTime();
+
+
+/* ==================================================
+   LAUNCH TIMER
+================================================== */
+
+function updateLaunchTimer(){
+
+  const now =
+    Date.now();
+
+  const distance =
+    LAUNCH_TIME - now;
+
+
+  if(distance <= 0){
+
+    document
+      .getElementById("launchOverlay")
+      .classList.add("hidden");
+
+    document
+      .getElementById("launchMessage")
+      .innerText =
+      "🎉 APONCHAT ❤️ এখন LIVE!";
+
+    return;
+
+  }
+
+
+  const days =
+    Math.floor(
+      distance /
+      (1000 * 60 * 60 * 24)
+    );
+
+
+  const hours =
+    Math.floor(
+      (
+        distance %
+        (1000 * 60 * 60 * 24)
+      ) /
+      (1000 * 60 * 60)
+    );
+
+
+  const minutes =
+    Math.floor(
+      (
+        distance %
+        (1000 * 60 * 60
+      )
+      ) /
+      (1000 * 60)
+    );
+
+
+  const seconds =
+    Math.floor(
+      (
+        distance %
+        (1000 * 60)
+      ) /
+      1000
+    );
+
+
+  document
+    .getElementById("days")
+    .innerText =
+    String(days).padStart(2,"0");
+
+
+  document
+    .getElementById("hours")
+    .innerText =
+    String(hours).padStart(2,"0");
+
+
+  document
+    .getElementById("minutes")
+    .innerText =
+    String(minutes).padStart(2,"0");
+
+
+  document
+    .getElementById("seconds")
+    .innerText =
+    String(seconds).padStart(2,"0");
+
+}
+
+
+updateLaunchTimer();
+
+setInterval(
+  updateLaunchTimer,
+  1000
+);
+
+
+/* ==================================================
+   CHECK LAUNCH
+================================================== */
+
+function isLaunched(){
+
+  return Date.now() >= LAUNCH_TIME;
+
+}
+
+
+/* ==================================================
+   AUTH
+================================================== */
+
+function showAuth(type){
+
+  document
+    .getElementById("loginForm")
+    .classList.toggle(
+      "hidden",
+      type !== "login"
+    );
+
+
+  document
+    .getElementById("registerForm")
+    .classList.toggle(
+      "hidden",
+      type !== "register"
+    );
+
+
+  document
+    .getElementById("forgotForm")
+    .classList.add("hidden");
+
+
+  document
+    .getElementById("loginTab")
+    .classList.toggle(
+      "active",
+      type === "login"
+    );
+
+
+  document
+    .getElementById("registerTab")
+    .classList.toggle(
+      "active",
+      type === "register"
+    );
+
+}
+
+
+/* ==================================================
+   SEND REGISTER OTP
+================================================== */
+
+function sendOTP(){
+
+  if(!isLaunched()){
+
+    toast(
+      "⏳ Registration 20 September 2026 দুপুর ১২টায় খুলবে।"
+    );
+
+    return;
+
+  }
+
+
+  const phone =
+    document
+      .getElementById("regPhone")
+      .value
+      .trim();
+
+
+  if(!/^01\d{9}$/.test(phone)){
+
+    toast(
+      "সঠিক বাংলাদেশি মোবাইল নম্বর দিন।"
+    );
+
+    return;
+
+  }
+
+
+  const exists =
+    users.some(
+      user => user.phone === phone
+    );
+
+
+  if(exists){
+
+    toast(
+      "এই নম্বরে আগে থেকেই Account আছে।"
+    );
+
+    return;
+
+  }
+
+
+  pendingPhone = phone;
+
+
+  demoOTP =
+    String(
+      Math.floor(
+        100000 +
+        Math.random() * 900000
+      )
+    );
+
+
+  document
+    .getElementById("demoOtpText")
+    .innerText =
+    demoOTP;
+
+
+  document
+    .getElementById("otpArea")
+    .classList.remove("hidden");
+
+
+  toast(
+    "📱 Demo OTP তৈরি হয়েছে।"
+  );
+
+}
+
+
+/* ==================================================
+   PROFILE PREVIEW
+================================================== */
+
+function previewProfile(input){
+
+  const file =
+    input.files[0];
+
+
+  if(!file) return;
+
+
+  if(
+    !file.type.startsWith("image/")
+  ){
+
+    toast(
+      "শুধু ছবি নির্বাচন করুন।"
+    );
+
+    return;
+
+  }
+
+
+  const reader =
+    new FileReader();
+
+
+  reader.onload =
+    function(e){
+
+      selectedProfilePhoto =
+        e.target.result;
+
+
+      document
+        .getElementById("profilePreview")
+        .innerHTML =
+        `
+          <img
+            src="${selectedProfilePhoto}"
+          >
+        `;
+
+    };
+
+
+  reader.readAsDataURL(file);
+
+}
+
+
+/* ==================================================
+   REGISTER USER
+================================================== */
+
+function registerUser(){
+
+  if(!isLaunched()){
+
+    toast(
+      "⏳ এখনো Launch হয়নি।"
+    );
+
+    return;
+
+  }
+
+
+  const otp =
+    document
+      .getElementById("regOtp")
+      .value
+      .trim();
+
+
+  const name =
+    document
+      .getElementById("regName")
+      .value
+      .trim();
+
+
+  const username =
+    document
+      .getElementById("regUsername")
+      .value
+      .trim();
+
+
+  const password =
+    document
+      .getElementById("regPassword")
+      .value;
+
+
+  const confirm =
+    document
+      .getElementById("regConfirm")
+      .value;
+
+
+  if(otp !== demoOTP){
+
+    toast(
+      "❌ OTP সঠিক নয়।"
+    );
+
+    return;
+
+  }
+
+
+  if(name.length < 2){
+
+    toast(
+      "আপনার নাম দিন।"
+    );
+
+    return;
+
+  }
+
+
+  if(username.length < 3){
+
+    toast(
+      "Username কমপক্ষে ৩ অক্ষরের দিন।"
+    );
+
+    return;
+
+  }
+
+
+  if(password.length < 6){
+
+    toast(
+      "Password কমপক্ষে ৬ অক্ষরের দিন।"
+    );
+
+    return;
+
+  }
+
+
+  if(password !== confirm){
+
+    toast(
+      "Password দুইটি একই নয়।"
+    );
+
+    return;
+
+  }
+
+
+  const usernameExists =
+    users.some(
+      user =>
+        user.username.toLowerCase()
+        === username.toLowerCase()
+    );
+
+
+  if(usernameExists){
+
+    toast(
+      "এই Username আগে থেকেই আছে।"
+    );
+
+    return;
+
+  }
+
+
+  const user = {
+
+    id:
+      "U" +
+      Date.now(),
+
+    name:
+      name,
+
+    username:
+      username,
+
+    phone:
+      pendingPhone,
+
+    password:
+      password,
+
+    photo:
+      selectedProfilePhoto,
+
+    online:
+      true,
+
+    joined:
+      true,
+
+    joinedAt:
+      new Date().toISOString()
+
+  };
+
+
+  users.push(user);
+
+
+  localStorage.setItem(
+    "apon_users",
+    JSON.stringify(users)
+  );
+
+
+  currentUser =
+    user;
+
+
+  localStorage.setItem(
+    "apon_current",
+    JSON.stringify(currentUser)
+  );
+
+
+  toast(
+    "🎉 Account তৈরি হয়েছে!"
+  );
+
+
+  setTimeout(
+    () => {
+
+      showApp();
+
+    },
+    600
+  );
+
+}
+
+
+/* ==================================================
+   LOGIN
+================================================== */
+
+function loginUser(){
+
+  const phone =
+    document
+      .getElementById("loginPhone")
+      .value
+      .trim();
+
+
+  const password =
+    document
+      .getElementById("loginPassword")
+      .value;
+
+
+  const user =
+    users.find(
+      item =>
+        item.phone === phone &&
+        item.password === password
+    );
+
+
+  if(!user){
+
+    toast(
+      "❌ Mobile number অথবা Password ভুল।"
+    );
+
+    return;
+
+  }
+
+
+  user.online = true;
+
+
+  currentUser =
+    user;
+
+
+  localStorage.setItem(
+    "apon_users",
+    JSON.stringify(users)
+  );
+
+
+  localStorage.setItem(
+    "apon_current",
+    JSON.stringify(currentUser)
+  );
+
+
+  showApp();
+
+}
+
+
+/* ==================================================
+   FORGOT PASSWORD
+================================================== */
+
+function showForgot(){
+
+  document
+    .getElementById("loginForm")
+    .classList.add("hidden");
+
+
+  document
+    .getElementById("registerForm")
+    .classList.add("hidden");
+
+
+  document
+    .getElementById("forgotForm")
+    .classList.remove("hidden");
+
+}
+
+
+/* ==================================================
+   FORGOT OTP
+================================================== */
+
+function sendForgotOTP(){
+
+  const phone =
+    document
+      .getElementById("forgotPhone")
+      .value
+      .trim();
+
+
+  const user =
+    users.find(
+      item => item.phone === phone
+    );
+
+
+  if(!user){
+
+    toast(
+      "এই নম্বরে কোনো Account পাওয়া যায়নি।"
+    );
+
+    return;
+
+  }
+
+
+  forgotOTP =
+    String(
+      Math.floor(
+        100000 +
+        Math.random() * 900000
+      )
+    );
+
+
+  document
+    .getElementById("forgotOtpText")
+    .innerText =
+    forgotOTP;
+
+
+  document
+    .getElementById("forgotOtpArea")
+    .classList.remove("hidden");
+
+
+  toast(
+    "📱 Demo OTP তৈরি হয়েছে।"
+  );
+
+}
+
+
+/* ==================================================
+   RESET PASSWORD
+================================================== */
+
+function resetPassword(){
+
+  const phone =
+    document
+      .getElementById("forgotPhone")
+      .value
+      .trim();
+
+
+  const otp =
+    document
+      .getElementById("forgotOtp")
+      .value
+      .trim();
+
+
+  const newPassword =
+    document
+      .getElementById("newPassword")
+      .value;
+
+
+  if(otp !== forgotOTP){
+
+    toast(
+      "❌ OTP ভুল।"
+    );
+
+    return;
+
+  }
+
+
+  if(newPassword.length < 6){
+
+    toast(
+      "Password কমপক্ষে ৬ অক্ষরের দিন।"
+    );
+
+    return;
+
+  }
+
+
+  const index =
+    users.findIndex(
+      user =>
+        user.phone === phone
+    );
+
+
+  if(index === -1){
+
+    toast(
+      "Account পাওয়া যায়নি।"
+    );
+
+    return;
+
+  }
+
+
+  users[index].password =
+    newPassword;
+
+
+  localStorage.setItem(
+    "apon_users",
+    JSON.stringify(users)
+  );
+
+
+  toast(
+    "✅ Password পরিবর্তন হয়েছে।"
+  );
+
+
+  setTimeout(
+    () => {
+
+      showAuth("login");
+
+    },
+    800
+  );
+
+}
+
+
+/* ==================================================
+   SHOW APP
+================================================== */
+
+function showApp(){
+
+  document
+    .getElementById("authScreen")
+    .classList.add("hidden");
+
+
+  document
+    .getElementById("app")
+    .classList.remove("hidden");
+
+
+  updateTopProfile();
+
+
+  openPage(
+    "home",
+    false
+  );
+
+}
+
+
+/* ==================================================
+   TOP PROFILE
+================================================== */
+
+function updateTopProfile(){
+
+  const box =
+    document
+      .getElementById("topProfile");
+
+
+  if(
+    currentUser &&
+    currentUser.photo
+  ){
+
+    box.innerHTML =
+      `
+        <img
+          src="${currentUser.photo}"
+        >
+      `;
+
+  }else{
+
+    box.innerHTML =
+      "👤";
+
+  }
+
+}
+
+
+/* ==================================================
+   NAVIGATION
+================================================== */
+
+function openPage(
+  page,
+  saveHistory = true
+){
+
+  if(
+    saveHistory &&
+    currentPage !== page
+  ){
+
+    pageHistory.push(
+      currentPage
+    );
+
+  }
+
+
+  currentPage =
+    page;
+
+
+  renderPage();
+
+
+  window.scrollTo(
+    0,
+    0
+  );
+
+}
+
+
+/* ==================================================
+   BACK
+================================================== */
+
+function goBack(){
+
+  if(pageHistory.length > 0){
+
+    const previous =
+      pageHistory.pop();
+
+    currentPage =
+      previous;
+
+    renderPage();
+
+    return;
+
+  }
+
+
+  openPage(
+    "home",
+    false
+  );
+
+}
+
+
+/* ==================================================
+   RENDER PAGE
+================================================== */
+
+function renderPage(){
+
+  const content =
+    document
+      .getElementById("content");
+
+
+  const back =
+    document
+      .getElementById("backButtonBox");
+
+
+  back.classList.toggle(
+    "hidden",
+    pageHistory.length === 0
+  );
+
+
+  const title =
+    document
+      .getElementById("topTitle");
+
+
+  const titles = {
+
+    home:
+      "APONCHAT ❤️",
+
+    group:
+      "APON FAMILY ❤️",
+
+    members:
+      "Joined Members",
+
+    memberProfile:
+      "Member Profile",
+
+    groupChat:
+      "Family Group Chat",
+
+    personalChat:
+      "Personal Chat",
+
+    channel:
+      "APON FAMILY CHANNEL 📢",
+
+    calls:
+      "Calls",
+
+    callScreen:
+      "Calling...",
+
+    profile:
+      "My Profile"
+
+  };
+
+
+  title.innerText =
+    titles[currentPage]
+    || "APONCHAT ❤️";
+
+
+  document
+    .querySelectorAll(".nav-btn")
+    .forEach(
+      btn =>
+        btn.classList.remove(
+          "active"
+        )
+    );
+
+
+  if(currentPage === "home")
+    document
+      .getElementById("navHome")
+      .classList.add("active");
+
+
+  if(
+    currentPage === "group" ||
+    currentPage === "groupChat"
+  )
+    document
+      .getElementById("navGroup")
+      .classList.add("active");
+
+
+  if(
+    currentPage === "members" ||
+    currentPage === "memberProfile" ||
+    currentPage === "personalChat"
+  )
+    document
+      .getElementById("navMembers")
+      .classList.add("active");
+
+
+  if(currentPage === "channel")
+    document
+      .getElementById("navChannel")
+      .classList.add("active");
+
+
+  if(currentPage === "profile")
+    document
+      .getElementById("navProfile")
+      .classList.add("active");
+
+
+  switch(currentPage){
+
+    case "home":
+      renderHome(content);
+      break;
+
+    case "group":
+      renderGroup(content);
+      break;
+
+    case "members":
+      renderMembers(content);
+      break;
+
+    case "memberProfile":
+      renderMemberProfile(content);
+      break;
+
+    case "groupChat":
+      renderGroupChat(content);
+      break;
+
+    case "personalChat":
+      renderPersonalChat(content);
+      break;
+
+    case "channel":
+      renderChannel(content);
+      break;
+
+    case "calls":
+      renderCalls(content);
+      break;
+
+    case "callScreen":
+      renderCallScreen(content);
+      break;
+
+    case "profile":
+      renderProfile(content);
+      break;
+
+    default:
+      renderHome(content);
+
+  }
+
+}
+
+
+/* ==================================================
+   HOME
+================================================== */
+
+function renderHome(box){
+
+  box.innerHTML = `
+
+    <div class="hero">
+
+      <h1>
+        Assalamu Alaikum ❤️
+      </h1>
+
+      <p>
+        স্বাগতম APONCHAT-এ।
+        নিজের মানুষদের সাথে সুন্দর
+        সময়, আড্ডা ও স্মৃতি ভাগ করে
+        নেওয়ার আমাদের ছোট্ট জায়গা।
+      </p>
+
+      <div class="owner-small">
+        👑 Created & Managed by
+        MD PARVEZ MARUF
+      </div>
+
+    </div>
+
+
+    <div class="home-grid">
+
+
+      <div
+        class="home-card"
+        onclick="openPage('group')"
+      >
+
+        <div class="icon">
+          ❤️
+        </div>
+
+        <h3>
+          APON FAMILY
+        </h3>
+
+        <p>
+          Family Group
+        </p>
+
+      </div>
+
+
+      <div
+        class="home-card"
+        onclick="openPage('channel')"
+      >
+
+        <div class="icon">
+          📢
+        </div>
+
+        <h3>
+          Family Channel
+        </h3>
+
+        <p>
+          Automatic captions
+        </p>
+
+      </div>
+
+
+      <div
+        class="home-card"
+        onclick="openPage('members')"
+      >
+
+        <div class="icon">
+          👥
+        </div>
+
+        <h3>
+          Joined Members
+        </h3>
+
+        <p>
+          ${users.length} জন সদস্য
+        </p>
+
+      </div>
+
+
+      <div
+        class="home-card"
+        onclick="openPage('calls')"
+      >
+
+        <div class="icon">
+          📞
+        </div>
+
+        <h3>
+          Calls
+        </h3>
+
+        <p>
+          Audio & Video
+        </p>
+
+      </div>
+
+
+      <div
+        class="home-card"
+        onclick="openPage('profile')"
+      >
+
+        <div class="icon">
+          👤
+        </div>
+
+        <h3>
+          My Profile
+        </h3>
+
+        <p>
+          Account settings
+        </p>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==================================================
+   GROUP
+================================================== */
+
+function renderGroup(box){
+
+  box.innerHTML = `
+
+    <div class="group-cover">
+      ❤️
+    </div>
+
+
+    <div class="group-name">
+      APON FAMILY ❤️
+    </div>
+
+
+    <div class="group-bio">
+
+      রক্তের সম্পর্কের বন্ধন,
+      ভালোবাসার টানে একসাথে। ❤️
+
+      হাসি, আনন্দ, সুখ-দুঃখ আর
+      সুন্দর স্মৃতিগুলো ভাগ করে নেওয়ার
+      আমাদের নিজের ছোট্ট পরিবার।
+
+      এখানে আমরা সবাই আপন। 🏡❤️
+
+    </div>
+
+
+    <div class="card">
+
+      <b>
+        👥 Members
+      </b>
+
+      <div
+        class="muted"
+        style="margin-top:7px;"
+      >
+        ${users.length} জন Joined Member
+      </div>
+
+    </div>
+
+
+    <div class="group-actions">
+
+      <button
+        class="primary-btn"
+        onclick="openPage('groupChat')"
+      >
+        💬 Group Chat
+      </button>
+
+
+      <button
+        class="secondary-btn"
+        onclick="openPage('calls')"
+      >
+        📞 Group Call
+      </button>
+
+    </div>
+
+
+    <div
+      class="card"
+      style="margin-top:13px;"
+    >
+
+      <div
+        class="section-title"
+      >
+
+        <h2>
+          🔗 Invite Link
+        </h2>
+
+      </div>
+
+      <p class="muted">
+
+        Invite Link Home-এ দেখানো হবে না।
+        Group Info-এর ভিতর থেকেই Share করা যাবে।
+
+      </p>
+
+
+      <button
+        class="secondary-btn"
+        style="margin-top:12px;"
+        onclick="copyInvite()"
+      >
+        📋 Copy Invite Link
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==================================================
+   INVITE
+================================================== */
+
+function copyInvite(){
+
+  const invite =
+    "APONCHAT://APON-FAMILY";
+
+  if(
+    navigator.clipboard
+  ){
+
+    navigator.clipboard
+      .writeText(invite);
+
+  }
+
+  toast(
+    "🔗 Invite Link copied!"
+  );
+
+}
+
+
+/* ==================================================
+   MEMBERS
+================================================== */
+
+function renderMembers(box){
+
+  if(users.length === 0){
+
+    box.innerHTML = `
+
+      <div class="card center">
+
+        <h2>
+          👥 কোনো Member নেই
+        </h2>
+
+        <p
+          class="muted"
+          style="margin-top:8px;"
+        >
+          Account তৈরি হলে এখানে
+          Member দেখা যাবে।
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  box.innerHTML = `
+
+    <div class="section-title">
+
+      <h2>
+        👥 Joined Members
+      </h2>
+
+      <span class="muted">
+        ${users.length}
+      </span>
+
+    </div>
+
+    <div id="memberList"></div>
+
+  `;
+
+
+  const list =
+    document
+      .getElementById("memberList");
+
+
+  users.forEach(
+    user => {
+
+      const item =
+        document.createElement("div");
+
+
+      item.className =
+        "member";
+
+
+      item.onclick =
+        () => {
+
+          selectedMember =
+            user;
+
+          openPage(
+            "memberProfile"
+          );
+
+        };
+
+
+      item.innerHTML = `
+
+        <div class="avatar">
+
+          ${
+            user.photo
+            ?
+            `<img src="${user.photo}">`
+            :
+            "👤"
+          }
+
+        </div>
+
+
+        <div class="member-info">
+
+          <div class="member-name">
+
+            ${
+              escapeHTML(
+                user.name
+              )
+            }
+
+          </div>
+
+
+          <div class="member-username">
+
+            @${escapeHTML(
+              user.username
+            )}
+
+          </div>
+
+
+          <div
+            class="${
+              user.online
+              ?
+              "online"
+              :
+              "offline"
+            }"
+          >
+
+            ${
+              user.online
+              ?
+              "● Online"
+              :
+              "○ Offline"
+            }
+
+          </div>
+
+        </div>
+
+
+        <div>
+          ›
+        </div>
+
+      `;
+
+
+      list.appendChild(item);
+
+    }
+  );
+
+}
+
+
+/* ==================================================
+   MEMBER PROFILE
+================================================== */
+
+function renderMemberProfile(box){
+
+  if(!selectedMember){
+
+    openPage(
+      "members",
+      false
+    );
+
+    return;
+
+  }
+
+
+  box.innerHTML = `
+
+    <div class="card">
+
+      <div class="profile-big">
+
+        ${
+          selectedMember.photo
+          ?
+          `<img src="${selectedMember.photo}">`
+          :
+          "👤"
+        }
+
+      </div>
+
+
+      <div class="profile-name">
+
+        ${
+          escapeHTML(
+            selectedMember.name
+          )
+        }
+
+      </div>
+
+
+      <div class="profile-user">
+
+        @${escapeHTML(
+          selectedMember.username
+        )}
+
+      </div>
+
+
+      <div
+        class="center"
+        style="margin-top:7px;"
+      >
+
+        <span
+          class="${
+            selectedMember.online
+            ?
+            "online"
+            :
+            "offline"
+          }"
+        >
+
+          ${
+            selectedMember.online
+            ?
+            "● Online"
+            :
+            "○ Offline"
+          }
+
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="group-actions">
+
+      <button
+        class="primary-btn"
+        onclick="startPersonalChat()"
+      >
+        💬 Message
+      </button>
+
+
+      <button
+        class="secondary-btn"
+        onclick="startCall('audio')"
+      >
+        📞 Audio Call
+      </button>
+
+
+      <button
+        class="secondary-btn"
+        onclick="startCall('video')"
+      >
+        📹 Video Call
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==================================================
+   PERSONAL CHAT
+================================================== */
+
+function getChatKey(){
+
+  if(!currentUser || !selectedMember)
+    return "";
+
+  return [
+    currentUser.id,
+    selectedMember.id
+  ]
+  .sort()
+  .join("_");
+
+}
+
+
+function startPersonalChat(){
+
+  openPage(
+    "personalChat"
+  );
+
+}
+
+
+function renderPersonalChat(box){
+
+  if(!selectedMember){
+
+    openPage(
+      "members",
+      false
+    );
+
+    return;
+
+  }
+
+
+  const key =
+    getChatKey();
+
+
+  if(!personalChats[key]){
+
+    personalChats[key] = [];
+
+  }
+
+
+  const messages =
+    personalChats[key];
+
+
+  box.innerHTML = `
+
+    <div
+      class="card"
+      style="
+        display:flex;
+        align-items:center;
+        gap:12px;
+      "
+    >
+
+      <div class="avatar">
+
+        ${
+          selectedMember.photo
+          ?
+          `<img src="${selectedMember.photo}">`
+          :
+          "👤"
+        }
+
+      </div>
+
+
+      <div>
+
+        <b>
+          ${escapeHTML(
+            selectedMember.name
+          )}
+        </b>
+
+        <div
+          class="${
+            selectedMember.online
+            ?
+            "online"
+            :
+            "offline"
+          }"
+        >
+
+          ${
+            selectedMember.online
+            ?
+            "● Online"
+            :
+            "○ Offline"
+          }
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="personalChatBox"
+      class="chat-box"
+    >
+
+      ${
+        messages.length === 0
+        ?
+        `
+          <div
+            class="center muted"
+            style="margin-top:150px;"
+          >
+            এখনো কোনো message নেই। ❤️
+          </div>
+        `
+        :
+        messages
+          .map(
+            message => `
+
+              <div
+                class="message ${
+                  message.senderId === currentUser.id
+                  ?
+                  "me"
+                  :
+                  "other"
+                }"
+              >
+                ${escapeHTML(
+                  message.text
+                )}
+              </div>
+
+            `
+          )
+          .join("")
+      }
+
+    </div>
+
+
+    <div class="chat-input">
+
+      <input
+        id="personalMessageInput"
+        type="text"
+        placeholder="Message লিখুন..."
+        onkeydown="
+          if(event.key==='Enter')
+          sendPersonalMessage()
+        "
+      >
+
+
+      <button
+        class="send-btn"
+        onclick="sendPersonalMessage()"
+      >
+        ➤
+      </button>
+
+    </div>
+
+  `;
+
+
+  setTimeout(
+    () => {
+
+      const chat =
+        document
+          .getElementById(
+            "personalChatBox"
+          );
+
+      if(chat){
+
+        chat.scrollTop =
+          chat.scrollHeight;
+
+      }
+
+    },
+    50
+  );
+
+}
+
+
+/* ==================================================
+   SEND PERSONAL MESSAGE
+================================================== */
+
+function sendPersonalMessage(){
+
+  const input =
+    document
+      .getElementById(
+        "personalMessageInput"
+      );
+
+
+  if(!input)
+    return;
+
+
+  const text =
+    input.value.trim();
+
+
+  if(!text)
+    return;
+
+
+  const key =
+    getChatKey();
+
+
+  if(!personalChats[key])
+    personalChats[key] = [];
+
+
+  personalChats[key].push({
+
+    senderId:
+      currentUser.id,
+
+    text:
+      text,
+
+    time:
+      new Date().toISOString()
+
+  });
+
+
+  localStorage.setItem(
+    "apon_personal_chats",
+    JSON.stringify(
+      personalChats
+    )
+  );
+
+
+  input.value = "";
+
+
+  renderPage();
+
+}
+
+
+/* ==================================================
+   GROUP CHAT
+================================================== */
+
+function renderGroupChat(box){
+
+  box.innerHTML = `
+
+    <div
+      id="groupChatBox"
+      class="chat-box"
+    >
+
+      ${
+        groupMessages.length === 0
+        ?
+        `
+          <div
+            class="center muted"
+            style="margin-top:150px;"
+          >
+            ❤️ Group Chat শুরু করুন।
+          </div>
+        `
+        :
+        groupMessages
+          .map(
+            message => `
+
+              <div
+                class="message ${
+                  message.senderId === currentUser.id
+                  ?
+                  "me"
+                  :
+                  "other"
+                }"
+              >
+
+                <b>
+                  ${escapeHTML(
+                    message.name
+                  )}
+                </b>
+
+                <br>
+
+                ${escapeHTML(
+                  message.text
+                )}
+
+              </div>
+
+            `
+          )
+          .join("")
+      }
+
+    </div>
+
+
+    <div class="chat-input">
+
+      <input
+        id="groupMessageInput"
+        type="text"
+        placeholder="Group message..."
+        onkeydown="
+          if(event.key==='Enter')
+          sendGroupMessage()
+        "
+      >
+
+
+      <button
+        class="send-btn"
+        onclick="sendGroupMessage()"
+      >
+        ➤
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==================================================
+   SEND GROUP MESSAGE
+================================================== */
+
+function sendGroupMessage(){
+
+  const input =
+    document
+      .getElementById(
+        "groupMessageInput"
+      );
+
+
+  if(!input)
+    return;
+
+
+  const text =
+    input.value.trim();
+
+
+  if(!text)
+    return;
+
+
+  groupMessages.push({
+
+    senderId:
+      currentUser.id,
+
+    name:
+      currentUser.name,
+
+    text:
+      text,
+
+    time:
+      new Date().toISOString()
+
+  });
+
+
+  localStorage.setItem(
+    "apon_group_messages",
+    JSON.stringify(
+      groupMessages
+    )
+  );
+
+
+  input.value = "";
+
+
+  renderPage();
+
+}
+
+
+/* ==================================================
+   CHANNEL CAPTIONS
+================================================== */
+
+const captions = [
+
+  "আলহামদুলিল্লাহ ❤️ পরিবারের মানুষগুলো পাশে থাকাই সবচেয়ে বড় পাওয়া।",
+
+  "ভালোবাসা থাকুক, সম্পর্কগুলো সুন্দর থাকুক। ❤️",
+
+  "হাসি ভাগ করলে বাড়ে, ভালোবাসা দিলে ফিরে আসে। 🥰",
+
+  "নিজের মানুষদের সময় দিন—সুন্দর স্মৃতি একদিন সবচেয়ে বড় সম্পদ হবে। ❤️",
+
+  "আল্লাহ আমাদের পরিবারে শান্তি, ভালোবাসা ও বরকত দান করুন। 🤲❤️",
+
+  "সুখে সবাই থাকে, দুঃখের সময় যে পাশে থাকে সেই আসল আপন। ❤️",
+
+  "বন্ধুত্ব হোক সুন্দর, পরিবার হোক ভালোবাসায় ভরা। 🏡❤️",
+
+  "আজকের ছোট্ট হাসিটাই হয়তো আগামী দিনের সুন্দর স্মৃতি। 😊❤️",
+
+  "সম্পর্ক যত্ন চাই, ভালোবাসা চাই, বিশ্বাস চাই। ❤️",
+
+  "সবাই ভালো থাকুন, হাসিখুশি থাকুন। আল্লাহ হাফেজ। 🤲",
+
+  "আপন মানুষদের সাথে কাটানো সময়ই জীবনের সুন্দর স্মৃতি। ❤️",
+
+  "একসাথে থাকি, একে অপরের পাশে থাকি। 🥰",
+
+  "ভালোবাসা দিয়ে সম্পর্ককে আগলে রাখুন। ❤️",
+
+  "আল্লাহ আমাদের সবাইকে সুখে ও শান্তিতে রাখুন। 🤲",
+
+  "পরিবার মানেই ভালোবাসার সবচেয়ে নিরাপদ জায়গা। 🏡❤️"
+
+];
+
+
+/* ==================================================
+   ADD AUTOMATIC CAPTION
+   NEWEST ALWAYS AT BOTTOM
+================================================== */
+
+function addAutomaticCaption(){
+
+  const text =
+    captions[
+      Math.floor(
+        Math.random() *
+        captions.length
+      )
+    ];
+
+
+  channelPosts.push({
+
+    id:
+      Date.now(),
+
+    text:
+      text,
+
+    likes:[],
+
+    time:
+      new Date().toISOString()
+
+  });
+
+
+  if(
+    channelPosts.length > 100
+  ){
+
+    channelPosts.shift();
+
+  }
+
+
+  localStorage.setItem(
+    "apon_channel_posts",
+    JSON.stringify(
+      channelPosts
+    )
+  );
+
+
+  if(
+    currentPage === "channel"
+  ){
+
+    renderPage();
+
+  }
+
+}
+
+
+/* ==================================================
+   EVERY 5 MINUTES
+================================================== */
+
+setInterval(
+  addAutomaticCaption,
+  5 * 60 * 1000
+);
+
+
+/* ==================================================
+   CHANNEL
+================================================== */
+
+function renderChannel(box){
+
+  box.innerHTML = `
+
+    <div class="channel-head">
+
+      <h2>
+        📢 APON FAMILY CHANNEL
+      </h2>
+
+
+      <p>
+        এখানে শুধুমাত্র Automatic
+        caption, shayari, ভালোবাসা,
+        বন্ধুত্ব ও সুন্দর কথাগুলো আসবে।
+      </p>
+
+
+      <div class="bot-status">
+
+        🤖 Auto Bot Active
+
+        <span>
+          • প্রতি ৫ মিনিটে
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div id="channelPosts">
+
+      ${
+        channelPosts.length === 0
+        ?
+        `
+          <div
+            class="card center"
+            style="grid-column:1/-1;"
+          >
+
+            <div
+              style="font-size:40px;"
+            >
+              📢
+            </div>
+
+            <h3
+              style="margin-top:10px;"
+            >
+              Channel শুরু হচ্ছে...
+            </h3>
+
+            <p
+              class="muted"
+              style="margin-top:7px;"
+            >
+              প্রথম Automatic Caption
+              শীঘ্রই আসবে।
+            </p>
+
+          </div>
+        `
+        :
+        channelPosts
+          .map(
+            post =>
+              renderPostHTML(post)
+          )
+          .join("")
+      }
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==================================================
+   POST HTML
+================================================== */
+
+function renderPostHTML(post){
+
+  const liked =
+    currentUser &&
+    post.likes &&
+    post.likes.includes(
+      currentUser.id
+    );
+
+
+  const likeCount =
+    post.likes
+    ?
+    post.likes.length
+    :
+    0;
+
+
+  return `
+
+    <article class="post">
+
+      <div class="post-text">
+
+        ${escapeHTML(
+          post.text
+        )}
+
+      </div>
+
+
+      <div class="post-bottom">
+
+        <div class="post-time">
+
+          🤖 Automatic
+
+        </div>
+
+
+        <button
+          class="like-btn"
+          onclick="
+            toggleLike(${post.id})
+          "
+        >
+
+          ${
+            liked
+            ?
+            "❤️"
+            :
+            "♡"
+          }
+
+          ${likeCount}
+
+        </button>
+
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+/* ==================================================
+   LIKE / UNLIKE
+================================================== */
+
+function toggleLike(id){
+
+  const post =
+    channelPosts.find(
+      item =>
+        item.id === id
+    );
+
+
+  if(!post)
+    return;
+
+
+  if(!post.likes)
+    post.likes = [];
+
+
+  const index =
+    post.likes.indexOf(
+      currentUser.id
+    );
+
+
+  if(index === -1){
+
+    post.likes.push(
+      currentUser.id
+    );
+
+  }else{
+
+    post.likes.splice(
+      index,
+      1
+    );
+
+  }
+
+
+  localStorage.setItem(
+    "apon_channel_posts",
+    JSON.stringify(
+      channelPosts
+    )
+  );
+
+
+  renderPage();
+
+}
+
+
+/* ==================================================
+   CALLS
+================================================== */
+
+function renderCalls(box){
+
+  box.innerHTML = `
+
+    <div class="card">
+
+      <h2>
+        📞 Calls
+      </h2>
+
+      <p
+        class="muted"
+        style="margin-top:7px;"
+      >
+        Joined members-দের সাথে
+        Audio / Video call করা যাবে।
+      </p>
+
+    </div>
+
+
+    ${
+      users.length === 0
+      ?
+      `
+        <div class="card center">
+          কোনো Member নেই।
+        </div>
+      `
+      :
+      users
+        .filter(
+          user =>
+            user.id !== currentUser.id
+        )
+        .map(
+          user => `
+
+            <div class="call-card">
+
+              <div class="avatar">
+
+                ${
+                  user.photo
+                  ?
+                  `<img src="${user.photo}">`
+                  :
+                  "👤"
+                }
+
+              </div>
+
+
+              <div class="call-info">
+
+                <b>
+                  ${escapeHTML(
+                    user.name
+                  )}
+                </b>
+
+                <div
+                  class="${
+                    user.online
+                    ?
+                    "online"
+                    :
+                    "offline"
+                  }"
+                >
+
+                  ${
+                    user.online
+                    ?
+                    "● Online"
+                    :
+                    "○ Offline"
+                  }
+
+                </div>
+
+              </div>
+
+
+              <div class="call-actions">
+
+                <button
+                  class="call-btn"
+                  onclick="
+                    selectedMember=users.find(
+                      u=>u.id==='${user.id}'
+                    );
+                    startCall('audio');
+                  "
+                >
+                  📞
+                </button>
+
+
+                <button
+                  class="call-btn"
+                  onclick="
+                    selectedMember=users.find(
+                      u=>u.id==='${user.id}'
+                    );
+                    startCall('video');
+                  "
+                >
+                  📹
+                </button>
+
+              </div>
+
+            </div>
+
+          `
+        )
+        .join("")
+    }
+
+  `;
+
+}
+
+
+/* ==================================================
+   START CALL
+================================================== */
+
+function startCall(type){
+
+  openPage(
+    "callScreen"
+  );
+
+  window.callType =
+    type;
+
+}
+
+
+/* ==================================================
+   CALL SCREEN
+================================================== */
+
+function renderCallScreen(box){
+
+  const type =
+    window.callType ||
+    "audio";
+
+
+  const name =
+    selectedMember
+    ?
+    selectedMember.name
+    :
+    "Family";
+
+
+  box.innerHTML = `
+
+    <div
+      class="card center"
+      style="
+        min-height:500px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+      "
+    >
+
+      <div
+        class="profile-big"
+        style="
+          width:120px;
+          height:120px;
+        "
+      >
+
+        ${
+          selectedMember &&
+          selectedMember.photo
+          ?
+          `<img src="${selectedMember.photo}">`
+          :
+          "👤"
+        }
+
+      </div>
+
+
+      <h2
+        style="margin-top:20px;"
+      >
+
+        ${
+          type === "video"
+          ?
+          "📹 Video Calling..."
+          :
+          "📞 Calling..."
+        }
+
+      </h2>
+
+
+      <p
+        class="muted"
+        style="margin-top:8px;"
+      >
+
+        ${escapeHTML(name)}
+
+      </p>
+
+
+      <div
+        class="group-actions"
+        style="
+          width:100%;
+          max-width:400px;
+          margin-top:30px;
+        "
+      >
+
+        <button
+          class="secondary-btn"
+          onclick="
+            toast('📵 Call ended');
+            goBack();
+          "
+        >
+          ❌ End Call
+        </button>
+
+
+        <button
+          class="primary-btn"
+          onclick="
+            toast('🎤 Microphone enabled');
+          "
+        >
+          🎤 Mute
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==================================================
+   PROFILE
+================================================== */
+
+function renderProfile(box){
+
+  box.innerHTML = `
+
+    <div class="card">
+
+      <div class="profile-big">
+
+        ${
+          currentUser.photo
+          ?
+          `<img src="${currentUser.photo}">`
+          :
+          "👤"
+        }
+
+      </div>
+
+
+      <div class="profile-name">
+
+        ${escapeHTML(
+          currentUser.name
+        )}
+
+      </div>
+
+
+      <div class="profile-user">
+
+        @${escapeHTML(
+          currentUser.username
+        )}
+
+      </div>
+
+
+      <div
+        class="center"
+        style="margin-top:8px;"
+      >
+
+        <span class="online">
+          ● Online
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="section-title">
+
+        <h2>
+          👤 Account
+        </h2>
+
+      </div>
+
+
+      <p class="muted">
+        📱 Mobile number:
+        Private
+      </p>
+
+
+      <p
+        class="muted"
+        style="margin-top:8px;"
+      >
+        🔐 Password:
+        Protected
+      </p>
+
+
+      <p
+        class="muted"
+        style="margin-top:8px;"
+      >
+        👑 Owner:
+        MD PARVEZ MARUF
+      </p>
+
+    </div>
+
+
+    <button
+      class="secondary-btn"
+      onclick="logout()"
+    >
+      🚪 Logout
+    </button>
+
+  `;
+
+}
+
+
+/* ==================================================
+   LOGOUT
+================================================== */
+
+function logout(){
+
+  if(currentUser){
+
+    const index =
+      users.findIndex(
+        user =>
+          user.id ===
+          currentUser.id
+      );
+
+
+    if(index !== -1){
+
+      users[index].online =
+        false;
+
+    }
+
+
+    localStorage.setItem(
+      "apon_users",
+      JSON.stringify(users)
+    );
+
+  }
+
+
+  currentUser =
+    null;
+
+
+  localStorage.removeItem(
+    "apon_current"
+  );
+
+
+  location.reload();
+
+}
+
+
+/* ==================================================
+   ESCAPE HTML
+================================================== */
+
+function escapeHTML(text){
+
+  return String(text)
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+
+/* ==================================================
+   TOAST
+================================================== */
+
+let toastTimer;
+
+
+function toast(message){
+
+  const box =
+    document
+      .getElementById("toast");
+
+
+  box.innerText =
+    message;
+
+
+  box.classList.add(
+    "show"
+  );
+
+
+  clearTimeout(
+    toastTimer
+  );
+
+
+  toastTimer =
+    setTimeout(
+      () => {
+
+        box.classList.remove(
+          "show"
+        );
+
+      },
+      2500
+    );
+
+}
+
+
+/* ==================================================
+   INITIAL START
+================================================== */
+
+if(currentUser){
+
+  const found =
+    users.find(
+      user =>
+        user.id ===
+        currentUser.id
+    );
+
+
+  if(found){
+
+    currentUser =
+      found;
+
+    currentUser.online =
+      true;
+
+    localStorage.setItem(
+      "apon_users",
+      JSON.stringify(users)
+    );
+
+    localStorage.setItem(
+      "apon_current",
+      JSON.stringify(currentUser)
+    );
+
+
+    showApp();
+
+  }else{
+
+    localStorage.removeItem(
+      "apon_current"
+    );
+
+  }
+
+}
+
+
+/* ==================================================
+   DEMO: CREATE FIRST AUTOMATIC CAPTION
+   ONLY IF EMPTY
+================================================== */
+
+if(
+  channelPosts.length === 0
+){
+
+  channelPosts.push({
+
+    id:
+      Date.now(),
+
+    text:
+      "আলহামদুলিল্লাহ ❤️ APON FAMILY CHANNEL-এর পক্ষ থেকে সবাইকে ভালোবাসা ও শুভেচ্ছা।",
+
+    likes:[],
+
+    time:
+      new Date().toISOString()
+
+  });
+
+
+  localStorage.setItem(
+    "apon_channel_posts",
+    JSON.stringify(
+      channelPosts
+    )
+  );
+
+}
+
+</script>
+
+</body>
+
+</html>
